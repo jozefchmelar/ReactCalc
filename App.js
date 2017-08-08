@@ -8,7 +8,7 @@ const inputButtons = [
   [1, 2, 3, '/'],
   [4, 5, 6, '*'],
   [7, 8, 9, '-'],
-  [0, '.', '=', '+','CE']
+  [0, '.', '=', '+', 'CE']
 ]
 
 export default class HelloWorldApp extends Component {
@@ -77,11 +77,11 @@ export default class HelloWorldApp extends Component {
   _handleStringInput(str) {
     switch (str) {
       case "CE":
-      this.setState({
-                    previousInputValue: 0,
-                    inputValue: 0,
-                    selectedSymbol: null
-                }); break;
+        this.setState({
+          previousInputValue: 0,
+          inputValue: 0,
+          selectedSymbol: null
+        }); break;
       case '/':
       case '*':
       case '+':
@@ -91,21 +91,21 @@ export default class HelloWorldApp extends Component {
           previousInputValue: this.state.inputValue,
           inputValue: 0
         }); break;
-    case '=' :
-         let symbol = this.state.selectedSymbol,
-                    inputValue = this.state.inputValue,
-                    previousInputValue = this.state.previousInputValue;
+      case '=':
+        let symbol = this.state.selectedSymbol,
+          inputValue = this.state.inputValue,
+          previousInputValue = this.state.previousInputValue;
 
-                if (!symbol) {
-                    return;
-                }
+        if (!symbol) {
+          return;
+        }
 
-                this.setState({
-                    previousInputValue: 0,
-                    inputValue: eval(previousInputValue + symbol + inputValue),
-                    selectedSymbol: null
-                });
-                break;
+        this.setState({
+          previousInputValue: 0,
+          inputValue: eval(previousInputValue + symbol + inputValue),
+          selectedSymbol: null
+        });
+        break;
     }
   }
 }
